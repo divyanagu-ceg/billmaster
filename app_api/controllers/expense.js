@@ -251,6 +251,20 @@ module.exports.checkUser = function(req, res) {
 };
 
 module.exports.categorySpend = function(req, res){
-    
+    var sql = "SELECT c.cat_name AS name, ROUND(SUM(e.amount)) AS total FROM expense e, category c WHERE e.expense_cat=c.cat_id GROUP BY e.expense_cat";
+    connection.query(sql, function (err, result, fields) {
+		console.log("Executing category spend");
+		if (!result) {
+			sendJsonResponse(res, 404, {
+				"message": "No Data!"
+			});
+			return;
+		}else if(err){
+			console.log(err);
+			sendJsonResponse(res, 500, err);
+		}else{
+			sendJsonResponse(res, 200, result);
+		}
+	});
 };
 

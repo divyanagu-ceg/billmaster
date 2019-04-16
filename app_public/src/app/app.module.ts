@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DateRangePickerModule } from '@syncfusion/ej2-angular-calendars';
 
 
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { d3Component } from './analytics/d3.component';
         HttpModule,
         FormsModule,
         ReactiveFormsModule,
+        DateRangePickerModule,
         RouterModule.forRoot([{
                 path: '',
                 component: ViewComponent

@@ -22,6 +22,11 @@ export class Category{
     cat_name: string;
 }
 
+export class CategorySpend{
+    name: string;
+    total: number;
+}
+
 @Injectable()
 export class BillDataService {
 
@@ -114,6 +119,16 @@ export class BillDataService {
         return this.http
             .get(url)
             .map(response => response.status)
+            .catch(this.handleError);
+    }
+    
+    
+    public getCategorySpend(): Promise< CategorySpend[] >{
+        const url: string = `${this.apiBaseUrl}/catspend`;
+        return this.http
+            .get(url)
+            .toPromise()
+            .then(response => response.json() as CategorySpend[])
             .catch(this.handleError);
     }
     

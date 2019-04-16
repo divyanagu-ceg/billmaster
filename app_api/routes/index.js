@@ -28,4 +28,8 @@ router.delete('/expenses/:expense_id', ctrlExpense.expenseDelete);
 router.put('/expense/:expenseId', ctrlExpense.expenseUpdate);
 
 
+/* d3 routes */
+router.get('/catspend', ctrlExpense.categorySpend);
+
+
 module.exports = router;

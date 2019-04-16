@@ -8,6 +8,19 @@
     </ul>
     <div class="main_content_scroll mCustomScrollbar" data-mcs-theme="minimal-dark">
         <div class="portfolio_grid grid clearfix">
+            <div *ngIf="showDates">
+                <div class="row">
+                    <div class="col-md-2 main_subtitle">Pick a date range</div>
+                    <div class="col-md-4">
+                        <ejs-daterangepicker placeholder='Select a range' [startDate]='start' [endDate]='end'></ejs-daterangepicker>
+                        <input type="button" class="btn btn-primary" value="OK" (click)="showDateChart()">
+                    </div>
+                
+                </div>
+                
+
+            </div>
+            
             <svg>
                 
             </svg>

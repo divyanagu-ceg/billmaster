@@ -138,7 +138,7 @@ export class d3Component implements OnInit {
         console.log(this.end);
     }
     
-    private changeChart(type): void{
+    public changeChart(type): void{
         if(type){
             if(type == 1){
                 this.createCategoryPie();    

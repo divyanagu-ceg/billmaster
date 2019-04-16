@@ -39,7 +39,7 @@ export class ViewComponent implements OnInit {
                 });
     }
     
-    private filterBills(catId): void{
+    public filterBills(catId: number): void{
         if(catId){
             let elements = this.elem.nativeElement.querySelectorAll('.portfolio_item');   
             elements.forEach(element => {

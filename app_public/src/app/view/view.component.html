@@ -1,0 +1,32 @@
+<!-- Sorting by Category-->
+<div class="portfolio_categories button-group filters-button-group">
+    <ul>
+        <li class="portfolio_category active is-checked" (click)="filterBills()">All</li>
+        <li class="portfolio_category" *ngFor="let cat of categories" 
+            (click)="filterBills(cat.cat_id)">{{cat.cat_name}}</li>
+    </ul>
+    <div class="main_content_scroll mCustomScrollbar" data-mcs-theme="minimal-dark">
+        <div class="portfolio_grid grid clearfix">
+            
+            <div class="grid-item portfolio_item " [ngClass]="item.expense_cat" *ngFor="let item of items" style="
+    border: 1px solid;
+    height: 200px;
+    width: 200px;
+    border-radius: 5px;"  [ngStyle]="{'background-color': imgNum}">
+                <p style="text-align: center; color: black; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);">{{item.expense_name}}<br>{{item.amount | currency:'CAD':'symbol-narrow'}}</p>
+                <!--<div class="portfolio_item">{{item.expense_name}}</div>-->
+                <!--<img [src] = "imgNum" >-->
+                <div class="portfolio_item_content d-flex flex-column align-items-center justify-content-center">
+                    <div class="portfolio_item_title">{{item.expense_desc}}</div>
+                    <div class="portfolio_item_title">{{item.expense_date | date}}</div>
+                    <!--<div class="portfolio_item_link"><a href="#">See More</a></div>-->
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.dropdown-item{
+    background-color: rgb(16, 15, 58) !important;
+}
+.dropdown-item:hover{
+    background-color: #8583e1 !important;
+    text-decoration: underline;
+    color: #fff;
+}
+
+a:hover {
+    background-color: #8583e1;
+}

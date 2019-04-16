@@ -1,0 +1,41 @@
+<div class="padding-left-50">
+   <h1 class="padding-top-20">Update your Bills</h1>
+   <h3 [innerHTML]="message"></h3>
+   <div class="col-md-3">
+       <form [formGroup]="form">
+	       <select formControlName="item" class="form-control">
+                <option [ngValue]="null" selected>Select Bill to Update</option>
+                <option *ngFor="let item of items" [ngValue]="item">{{item.expense_name}}</option>
+            </select>           
+       </form>
+    </div>
+    <div *ngIf="item" class="col-md-12" class="padding-top-20">
+        <form class="form-horizontal" #updatebill="ngForm" >
+      <div class="form-group row" >
+        <label class="col-xs-10 col-sm-4 control-label" for="name">Expense Name</label>
+        <div class="col-xs-12 col-sm-4">
+          <input class="form-control" id="name" name="name" disabled  [(ngModel)]="item.expense_name"/>
+        </div>
+      </div>
+      <div class="form-group row" >
+        <label class="col-xs-10 col-sm-4 control-label" for="name">Expense Description</label>
+        <div class="col-xs-12 col-sm-4">
+          <input class="form-control" id="desc" name="desc"   [(ngModel)]="item.expense_desc"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-xs-10 col-sm-4 control-label" for="date">Bill Date</label>
+        <div class="col-xs-12 col-sm-4">
+          <input class="form-control" id="date" name="date" placeholder="yyyy-mm-dd" required  [ngModel]="item.expense_date | date: 'yyyy-MMM-dd'"  (ngModelChange)="item.date=$event" disabled/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-xs-10 col-sm-4 control-label" for="amount">Amount</label>
+        <div class="col-xs-12 col-sm-2">
+          <input class="form-control" id="quantity" name="amount" type="number" min="1" required  [(ngModel)]="item.amount"/>
+        </div>
+      </div>
+		<button class="btn btn-default" type="button" (click)="save(updatebill.value, item.expense_id)" [disabled]="!updatebill.dirty">Update Expense</button>
+        </form>  
+    </div>
+</div>

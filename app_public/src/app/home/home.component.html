@@ -1,0 +1,126 @@
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="menu-bar">
+    <div class="container-fluid">
+      <a class="navbar-brand brand-name" href="/">BillMaster</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+			<li class="nav-item" routerLinkActive="active">
+				<a class="nav-link menu-item" routerLink="list">My Expenses</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link menu-item" routerLink="add-expense">Add Bill</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link menu-item" routerLink="update-item">Update Bill</a>
+			</li> 
+			 <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  Categories
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				  <a class="dropdown-item" routerLink="add-cat">Add New</a>
+				  <a class="dropdown-item" routerLink="edit-cat">Edit</a>
+				</div>
+			</li>
+        </ul>
+      </div>
+    </div>
+</nav>-->
+
+
+<div class="super_container">
+	<header class="header">
+		<div class="header_content d-flex flex-row align-items-center justify-content-start">
+			<div class="logo"><span>BILLMASTER</span></div>
+			<div class="main_nav d-flex flex-row align-items-end justify-content-start collapse navbar-collapse">
+				<ul class="d-flex flex-row align-items-center justify-content-start navbar-nav mr-auto">
+					
+					<!--<li><a href="skills.html"><b>My Account</b></a></li>-->
+                    <li class="nav-item" routerLinkActive="active">
+                        <a class="menu-item" routerLink="list">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Manage Bills
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" routerLink="add-cat">Add New</a>
+                          <a class="dropdown-item" routerLink="edit-cat">Update Bill</a>
+                        </div>
+                    </li>
+                    <li><a routerLink="view">View Categories</a></li>
+					<li><a href="portfolio.html">My Analytics</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Categories
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" routerLink="add-cat">Add New</a>
+                          <a class="dropdown-item" routerLink="edit-cat">Edit</a>
+                        </div>
+                    </li>
+				</ul>
+				
+			</div>
+
+	<div class="menu">
+		<div class="menu_content d-flex flex-row align-items-start justify-content-end">
+			<div class="hamburger ml-auto">menu</div>
+			<div class="menu_nav text-right">
+				<ul>
+					<li><a href="about.html"> BILL MASTER</a></li>
+					<li><a href="skills.html">My Account</a></li>
+					<li><a href="services.html">Add Bill</a></li>
+					<li><a href="experience.html">Update Bill</a></li>
+					<li><a href="education.html">View Categories</a></li>
+					<li><a href="portfolio.html">My Analytics</a></li>
+				
+				</ul>
+			</div>
+		</div>
+	</div>
+		</div>
+	</header>
+    <div class="content_container">
+    <div class="main_content_outer d-flex flex-xl-row flex-column align-items-start justify-content-start">
+        <!-- General Info -->
+        <div class="general_info d-flex flex-xl-column flex-md-row flex-column">
+				<div>
+					<div class="general_info_image">
+						<div class="background_image" style="background-image:url(assets/images/smith.jpg)"></div>
+						<div class="header_button_2">
+						</div>
+					</div>
+                    
+				</div>
+				<div class="general_info_content">
+					<div class="general_info_content_inner mCustomScrollbar" data-mcs-theme="minimal-dark">
+						<!--<div class="general_info_title">General Information</div>-->
+						<ul class="general_info_list">
+							<li class="d-flex flex-row align-items-center justify-content-start">
+								<div class="general_info_icon d-flex flex-column align-items-start justify-content-center"><img src="assets/images/icon_1.png" alt=""></div>
+								<div class="general_info_text">Name: <span>XXX</span></div>
+							</li>
+							 <li class="d-flex flex-row align-items-center justify-content-start">
+				                 <div class="general_info_icon d-flex flex-column align-items-start justify-content-center"><img src="assets/images/icon_2.png" alt=""></div>
+								<div class="general_info_text">Date of Birth: <span>August 25, 1991</span></div>
+							</li>
+				         </ul>
+        			</div>
+				</div>
+			</div>
+            <!-- Main Content -->
+        <div class="main_content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<!--<div class="container margin-0">
+  <router-outlet></router-outlet>
+</div>-->
+
+
+
+

@@ -1,0 +1,59 @@
+      <div class="login-wrap">
+	   <div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab" style="color: white">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab" style="color: white">Sign Up</label>
+		<div class="login-form">
+            <form class="form-horizontal" #oldUser="ngForm" (ngSubmit)="onOldSubmit(oldUser)">
+			<div class="sign-in-htm">
+                <h3 style="color:#aaa;">Enter the details: </h3>
+				<div class="group">
+					<label for="oldUsername" class="label">Username</label>
+					<input id="oldUsername" name="oldUsername" type="text" class="input" required  ngModel>
+				</div>
+				<div class="group">
+					<label for="oldPin" class="label">Pin</label>
+					<input id="oldPin" name="oldPin" type="password" class="input" data-type="password" required  ngModel>
+				</div>
+				<br>
+                <div class="group">
+					<input type="submit" class="button" [disabled]="!oldUser.valid" value="Sign In">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<a style="color: white;" href="#forgot">Forgot PIN?</a>
+				</div>
+            </div>
+           </form>
+            <form class="form-horizontal" #newUser="ngForm" (ngSubmit)="onNewSubmit(newUser)">
+            <div class="sign-up-htm">
+                <h3 style="color:#aaa;">Enter the details: </h3>
+				<div class="group">
+					<label for="newUsername" class="label">Username</label>
+					<input id="newUsername" name="newUsername" type="text" class="input" required  ngModel>
+				</div>
+                <div class="group">
+					<label for="dob" class="label">Date-of-Birth</label>
+					<input id="dob" name="dob" type="date" class="input" required  ngModel>
+				</div>
+				<div class="group">
+					<label for="newPin1" class="label">Pin</label>
+					<input id="newPin1" name="newPin1" type="password" class="input" data-type="password" required  ngModel>
+				</div>  
+				<div class="group">
+					<label for="newPin2" class="label">Repeat Pin</label>
+					<input id="newPin2" name="newPin2" type="password" class="input" data-type="password" required  ngModel>
+				</div>
+				
+				<div class="group">
+					<input type="submit" class="button" [disabled]="!newUser.valid" value="Sign Up">
+				</div>
+				
+				<div class="foot-lnk">
+					<label style="color: white" for="tab-1">Already Member?</label>
+				</div>
+			</div>
+            </form>
+          </div>
+          </div>
+          </div>
+     

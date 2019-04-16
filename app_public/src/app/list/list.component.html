@@ -1,0 +1,79 @@
+<!--<div class="padding-left-50">
+   <span>
+		<h1 class="padding-top-20">Expenses at a Glance </h1>
+		<span>
+			<button type="button" class="btn btn-default btn-sm" (click)="addExpense()">
+			  <i class="fa fa-plus"style="font-size:24px"></i> Add
+			</button>
+		</span>
+   </span>
+   
+   <h3 [innerHTML]="message"></h3>
+   <div class="card-columns padding-top-20" >
+      <div class="card bg-light mb-3" style="max-width:18rem" *ngFor="let item of items">
+         <div class="card-header" style="background-color: #283c4f;color: white;text-align:center;font-weight:bold;font-size:30px">
+            {{item.expense_name}}
+         </div>
+         <div class="card-body">
+            <div class="card-text">
+				<p style="text-align:center"> <span style="font-weight:bold;font-size:30px"> ${{item.amount}} </span> </p>
+               <p style="font-style: italic;text-align:center">Added on: {{item.expense_date | date: 'dd-MMM-yyyy'}}</p>
+            </div>
+            <p>
+               Is it a Left-Over? <span *ngIf="item.left_overs == 'True';else other_content">Yes</span> 
+               <ng-template #other_content>No</ng-template>
+            </p>
+         </div>
+         <div class="card-footer" style="background-color:#283c4f;color:white;text-align:center;font-weight:bold;">
+            <a style="color:white;cursor: pointer" (click)="deleteExpense(item.expense_id)"><i class="fa fa-trash-o" aria-hidden="true"></i>
+</a> 
+         </div>
+      </div>
+   </div>
+</div>-->
+
+<div class="main_title_container d-flex flex-column align-items-start justify-content-end">
+    <div class="main_subtitle">   </div>
+    <div class="main_title"><b>BILL IT! TRACK IT!</b></div>
+</div>
+
+<!-- Loaders -->
+<div class="loaders clearfix">
+
+    <!-- Loader -->
+    <div class="loader_container">
+        <div class="loader" data-perc="0.75"></div>
+        <div class="loader_content text-center">
+            <div class="loader_title">SPENT</div>
+            <div class="loader_subtitle"></div>
+        </div>
+    </div>
+
+    <!-- Loader -->
+    <div class="loader_container">
+        <div class="loader" data-perc="0.83"></div>
+        <div class="loader_content text-center">
+            <div class="loader_title">Target</div>
+            <div class="loader_subtitle"></div>
+        </div>
+    </div>
+
+    <!-- Loader -->
+    <div class="loader_container">
+        <div class="loader" data-perc="0.25"></div>
+        <div class="loader_content text-center">
+            <div class="loader_title">Balance</div>
+            <div class="loader_subtitle"></div>
+        </div>
+    </div>
+
+    <!-- Loader -->
+    <div class="loader_container">
+        <div class="loader" data-perc="0.95"></div>
+        <div class="loader_content text-center">
+            <div class="loader_title"> GOAL Achieved</div>
+            <div class="loader_subtitle"></div>
+        </div>
+    </div>
+
+</div>

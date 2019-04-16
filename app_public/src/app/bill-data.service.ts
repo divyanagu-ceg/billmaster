@@ -34,8 +34,9 @@ export class BillDataService {
 
     }
 
-    private apiBaseUrl = 'http://localhost:3000/api';
-
+   // private apiBaseUrl = 'http://localhost:3000/api';
+    
+    private apiBaseUrl = 'https://calm-wildwood-62623.herokuapp.com/api';
 	
 	public getExpenses(): Promise < Expense[] > {
         const url: string = `${this.apiBaseUrl}/expenses`;

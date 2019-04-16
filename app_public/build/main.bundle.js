@@ -549,7 +549,8 @@ var CategorySpend = (function () {
 var BillDataService = (function () {
     function BillDataService(http) {
         this.http = http;
-        this.apiBaseUrl = 'http://localhost:3000/api';
+        // private apiBaseUrl = 'http://localhost:3000/api';
+        this.apiBaseUrl = 'https://calm-wildwood-62623.herokuapp.com/api';
     }
     BillDataService.prototype.getExpenses = function () {
         var url = this.apiBaseUrl + "/expenses";

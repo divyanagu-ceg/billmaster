@@ -94,7 +94,7 @@ export class AddCategoryComponent implements OnInit {
             .subscribe(data => {
                     console.log(data);
                     if (data == 204) {
-                        this.router.navigate(['/list']);
+                        this.router.navigate(['/view']);
                     } else {
                         this.message = "Error occurred while deleting category. Please try again!"
                     }

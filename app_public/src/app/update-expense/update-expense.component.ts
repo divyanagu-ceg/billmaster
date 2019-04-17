@@ -52,7 +52,7 @@ export class UpdateExpenseComponent implements OnInit {
             .subscribe(data => {
                     console.log(data);
                     if (data == 204) {
-                        this.router.navigate(['/list']);
+                        this.router.navigate(['/view']);
                     } else {
                         this.message = "Error occurred while updating expense. Please try again!"
                     }

@@ -95,6 +95,58 @@ module.exports.categoryCreate = function(req, res) {
 	});
 };
 
+/*function to update category in list*/
+module.exports.categoryUpdate = function(req, res) {
+	var cat_id = req.params.cat_id;
+	console.log("Update---",req.params.cat_id);
+	if (cat_id) {
+		var sql = "UPDATE category SET  cat_name = ? WHERE cat_id = ?";
+		console.log(req.body);
+		var values = [req.body.name,req.params.cat_id];
+		connection.query(sql, values, function (err, result) {
+			if (err) {
+				console.log(err);
+				sendJsonResponse(res, 500, {
+					"message": "Error while saving"
+			});
+			} else {
+				sendJsonResponse(res, 204, null);
+			}
+		});
+	} else {
+		sendJsonResponse(res, 400, {
+			"message": "No cat_id in URL"
+		});
+	}
+};
+
+/*function to  delete category from database*/
+module.exports.categoryDelete = function(req, res) {
+	var cat_id = req.params.cat_id;
+	console.log("Delete---",req.params.cat_id);
+	if (cat_id) {
+		  var sql = "DELETE FROM category WHERE cat_id = " + cat_id;
+		  connection.query(sql, function (err, result) {
+			console.log("Category to be deleted:");
+				if(err){
+					console.log("Delete Error in API:", err);
+					sendJsonResponse(res, 500, err);
+					return;
+				}else{
+                    console.log("Delete Success in API:");
+                    console.log("Number of rows deleted: " + result.affectedRows);
+                    sendJsonResponse(res, 204, null);
+                }
+				
+			});
+	}
+	else {
+		sendJsonResponse(res, 400, {
+			"message": "No expense_id in URL"
+		});
+	}
+};
+
 module.exports.expenseCreate = function(req, res) {
 	console.log("Create----", req.body);
 	var sql = "INSERT INTO expense (username, expense_name, amount, expense_cat, expense_date, expense_desc) VALUES (?,?,?,?,?,?)";
@@ -268,3 +320,45 @@ module.exports.categorySpend = function(req, res){
 	});
 };
 
+module.exports.dateRangeSpend = function(req, res){
+    var fromDate = req.params.from, toDate = req.params.to;
+    console.log(fromDate, toDate);
+    var sql = "SELECT expense_date AS date, amount FROM expense WHERE expense_date BETWEEN '" + fromDate + "' AND '" + toDate + "'";
+    connection.query(sql, function (err, result, fields) {
+        console.log("query", sql);
+		console.log("Executing date range spend");
+		if (!result) {
+			sendJsonResponse(res, 404, {
+				"message": "No Data!"
+			});
+			return;
+		}else if(err){
+			console.log(err);
+			sendJsonResponse(res, 500, err);
+		}else{
+            console.log(result);
+			sendJsonResponse(res, 200, result);
+		}
+	});
+};
+
+module.exports.todaysBills = function(req, res){
+    var sql = "SELECT ROUND(SUM(amount),2) AS total FROM expense WHERE expense_date = CURRENT_DATE";
+    
+    connection.query(sql, function (err, result, fields) {
+        console.log("query", sql);
+		console.log("Executing todays spend");
+		if (!result) {
+			sendJsonResponse(res, 404, {
+				"message": "No Data!"
+			});
+			return;
+		}else if(err){
+			console.log(err);
+			sendJsonResponse(res, 500, err);
+		}else{
+            console.log(result);
+			sendJsonResponse(res, 200, result);
+		}
+	});
+};

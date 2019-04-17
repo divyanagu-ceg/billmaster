@@ -34,9 +34,8 @@
 			<div class="main_nav d-flex flex-row align-items-end justify-content-start collapse navbar-collapse">
 				<ul class="d-flex flex-row align-items-center justify-content-start navbar-nav mr-auto">
 					
-					<!--<li><a href="skills.html"><b>My Account</b></a></li>-->
                     <li class="nav-item" routerLinkActive="active">
-                        <a class="menu-item" routerLink="list">Home</a>
+                        <a class="menu-item" routerLink="list" (click)="window.location.reload();">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,15 +48,7 @@
                     </li>
                     <li><a routerLink="view">View Categories</a></li>
 					<li><a  routerLink="analytics">My Analytics</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Categories
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" routerLink="add-cat">Add New</a>
-                          <a class="dropdown-item" routerLink="edit-cat">Edit</a>
-                        </div>
-                    </li>
+                    <li><a  routerLink="add-cat">Manage Categories</a></li>
 				</ul>
 				
 			</div>
@@ -109,7 +100,7 @@
 				</div>
 			</div>
             <!-- Main Content -->
-        <div class="main_content">
+        <div class="main_content" style="overflow: auto">
             <router-outlet></router-outlet>
         </div>
     </div>

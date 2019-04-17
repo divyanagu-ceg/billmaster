@@ -15,6 +15,13 @@ router.post('/expense', ctrlExpense.expenseCreate);
 //save category
 router.post('/category', ctrlExpense.categoryCreate);
 
+//update category
+router.put('/category/:cat_id', ctrlExpense.categoryUpdate);
+
+//delete category
+
+router.delete('/category/:cat_id', ctrlExpense.categoryDelete);
+
 //save user
 router.post('/user', ctrlExpense.userCreate);
 
@@ -31,5 +38,8 @@ router.put('/expense/:expenseId', ctrlExpense.expenseUpdate);
 /* d3 routes */
 router.get('/catspend', ctrlExpense.categorySpend);
 
+router.get('/datespend/:from/:to', ctrlExpense.dateRangeSpend);
+
+router.get('/todaysbills', ctrlExpense.todaysBills);
 
 module.exports = router;

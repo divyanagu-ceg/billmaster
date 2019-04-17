@@ -1,19 +1,25 @@
 <!-- Sorting by Category-->
-<div class="main_title"><b>Analyse Bills</b></div>
+<div class="main_title" style="font-size: 30px;padding-top: 10px"><b>Analyse your Spending Habits!</b></div>
 <div class="portfolio_categories button-group filters-button-group">
     <ul>
         <li class="portfolio_category active is-checked" (click)="changeChart(1)">By Category</li>
-        <li class="portfolio_category active is-checked" (click)="changeChart(2)">By Date</li>
+        <li class="portfolio_category active is-checked" (click)="changeChart(2)">By Date Range</li>
+<!--
         <li class="portfolio_category active is-checked" (click)="changeChart(3)">By Spend</li>
+-->
+        <li class="portfolio_category active is-checked" (click)="changeChart(4)">Today's Bills</li>
     </ul>
-    <div class="main_content_scroll mCustomScrollbar" data-mcs-theme="minimal-dark">
-        <div class="portfolio_grid grid clearfix">
+    <div class="main_content_scroll mCustomScrollbar" data-mcs-theme="minimal-dark" id="container">
+        <div class="portfolio_grid grid clearfix" >
             <div *ngIf="showDates">
                 <div class="row">
                     <div class="col-md-2 main_subtitle">Pick a date range</div>
                     <div class="col-md-4">
-                        <ejs-daterangepicker placeholder='Select a range' [startDate]='start' [endDate]='end'></ejs-daterangepicker>
-                        <input type="button" class="btn btn-primary" value="OK" (click)="showDateChart()">
+                        <ejs-daterangepicker placeholder='Select a range' (change)="onDateSelection($event)"></ejs-daterangepicker>
+                        <br>
+                        <div id="tooltip" class="hidden">
+                          <p><span id="value">100</span>%</p>
+                        </div>
                     </div>
                 
                 </div>
@@ -21,6 +27,11 @@
 
             </div>
             
+            <div *ngIf="todaysBills">
+                <div class="main_title" style="font-size: 30px;padding-top: 10px"><b>Today you spent a total of ${{total}}!</b></div>
+            </div>
+            <!--<div id="pie" style="padding: 50px">
+            </div>-->
             <svg>
                 
             </svg>

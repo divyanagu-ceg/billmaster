@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateRangePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { DatePipe } from '@angular/common';
 
 
 import { AppComponent } from './app.component';
@@ -81,7 +82,7 @@ import { d3Component } from './analytics/d3.component';
             }
         ])
     ],
-    providers: [],
+    providers: [DatePipe],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

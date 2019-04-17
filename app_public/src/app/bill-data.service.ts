@@ -27,6 +27,11 @@ export class CategorySpend{
     total: number;
 }
 
+export class DateRangeSpend{
+    date: string;
+    amount: number;
+}
+
 @Injectable()
 export class BillDataService {
 
@@ -34,9 +39,9 @@ export class BillDataService {
 
     }
 
-   // private apiBaseUrl = 'http://localhost:3000/api';
+    private apiBaseUrl = 'http://localhost:3000/api';
     
-    private apiBaseUrl = 'https://calm-wildwood-62623.herokuapp.com/api';
+    //private apiBaseUrl = 'https://calm-wildwood-62623.herokuapp.com/api';
 	
 	public getExpenses(): Promise < Expense[] > {
         const url: string = `${this.apiBaseUrl}/expenses`;
@@ -130,6 +135,24 @@ export class BillDataService {
             .get(url)
             .toPromise()
             .then(response => response.json() as CategorySpend[])
+            .catch(this.handleError);
+    }
+    
+    public getDateRangeSpend(from, to): Promise< DateRangeSpend[] >{
+        const url: string = `${this.apiBaseUrl}/datespend/` + from + `/` + to;;
+        return this.http
+            .get(url)
+            .toPromise()
+            .then(response => response.json() as DateRangeSpend[])
+            .catch(this.handleError);
+    }
+    
+    public getTodaysBills(): Promise< number >{
+        const url: string = `${this.apiBaseUrl}/todaysbills`;
+        return this.http
+            .get(url)
+            .toPromise()
+            .then(response => response.json() as number)
             .catch(this.handleError);
     }
     
